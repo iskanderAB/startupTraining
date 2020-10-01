@@ -1,0 +1,11 @@
+.person {
+    /*position: absolute;*/
+    box-sizing: border-box;
+    width: 10vw;
+    height: 10vh;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 20px;
+    margin: auto;
+    border-radius: 6px;
+}

@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Person from "./components/Person/person";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [persons , setPersons] = useState([
+        {
+            lastname: 'iskander',
+            firstname: 'abbassi',
+            status : true
+        },
+        {
+            lastname: 'taher',
+            firstname: 'said',
+            status : false
+        },
+        {
+            lastname: 'khaled',
+            firstname: 'abbes',
+            status : true
+        }, {
+            lastname: 'mouin',
+            firstname: 'lahbib',
+            status : false
+        }
+    ]);
+   const statusHandler =(lastname) => {
+       const newPersons = persons.map(v => {
+           if (v.lastname === lastname){
+               v.status = !v.status
+               return v
+           }
+           return  v ;
+       });
+       setPersons(newPersons);
+       console.log(newPersons);
+   }
+    return (
+        <div className="App">
+            {persons.map((v,index) => <Person handler={statusHandler} key={index} status={v.status} lastname={v.lastname} firstname={v.firstname} />)}
+        </div>
+    );
 }
 
 export default App;
