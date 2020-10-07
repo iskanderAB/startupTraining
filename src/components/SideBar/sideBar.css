@@ -1,0 +1,6 @@
+.sideBar{
+    width: 20vw;
+    height: 100vh;
+    background-color: beige;
+    transition-duration: .2s;
+}
